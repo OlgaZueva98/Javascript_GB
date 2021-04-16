@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<meta charset="utf-8"> 
+<script type="text/javascript">
+// 1. Почему код даёт именно такие результаты?
+	var a = 1, b = 1, c, d;
+	c = ++a; alert(c); //2, c = a + 1
+	d = b++; alert(d); //1, операнд возвращает старое значение увеличенной переменной
+	c = (2+ ++a); alert(c); //5, с = (2 + (2 + 1))
+	d = (2+ b++); alert(d); //4, d = (2 + 2)
+	alert(a); //3, в предыдущих примерах к a дважды прибавлена единица
+	alert(b); //3, в предыдущих примерах к b дважды прибавлена единица
+	
+
+// 2. Чему будет равен x в примере ниже?
+
+	//var a = 2;
+	//var x = 1 + (a *= 2);
+	
+	//x будет равен 5
+	
+	
+// 3. Объявить две целочисленные переменные a и b и задать им произвольные начальные значения. 
+// Затем написать скрипт, который работает по следующему принципу:
+// если a и b положительные, вывести их разность;
+// если а и b отрицательные, вывести их произведение;
+// если а и b разных знаков, вывести их сумму
+	
+	var a = 5;
+	var b = -6;
+	if(a >= 0 && b >= 0) 
+	   alert(a-b);
+	else if (a < 0 && b < 0)
+	   alert(a * b);
+	else
+	   alert(a + b);
+	   
+//4. Присвоить переменной а значение в промежутке [0..15]. 
+// С помощью оператора switch организовать вывод чисел от a до 15.   
+
+	var a = Math.floor(Math.random() * (15 - 0 + 1)) + 0
+	switch (a) {
+		case 0:
+		alert("0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15");
+		breake
+		case 1:
+		alert("1,2,3,4,5,6,7,8,9,10,11,12,13,14,15");
+		break;
+		case 2:
+		alert("2,3,4,5,6,7,8,9,10,11,12,13,14,15");
+		break;
+		case 3:
+		alert("3,4,5,6,7,8,9,10,11,12,13,14,15");
+		break;
+		case 4:
+		alert("4,5,6,7,8,9,10,11,12,13,14,15");
+		break;
+		case 5:
+		alert("5,6,7,8,9,10,11,12,13,14,15");
+		break;	
+		case 6:
+		alert("6,7,8,9,10,11,12,13,14,15");
+		break;	
+		case 7:
+		alert("7,8,9,10,11,12,13,14,15");
+		break;	
+		case 8:
+		alert("8,9,10,11,12,13,14,15");
+		break;		
+		case 9:
+		alert("9,10,11,12,13,14,15");
+		break;		
+		case 10:
+		alert("10,11,12,13,14,15");
+		break;	
+		case 11:
+		alert("11,12,13,14,15");
+		break;	
+		case 12:
+		alert("12,13,14,15");
+		break;	
+		case 13:
+		alert("13,14,15");
+		break;	
+		case 14:
+		alert("14,15");
+		break;	
+		case 15:
+		alert("15");
+		break;			
+	}
+
+	
+// 5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. 
+// Обязательно использовать оператор return.
+
+	var a = 10
+	var b = 21
+	
+	function addition (a,b) {
+		return a + b;
+	}
+	
+	function subtraction (a,b) {
+		return a - b;
+	}
+	
+	function multiplication (a,b) {
+		return a * b;
+	}
+	
+	function division (a,b) {
+		return a / b;
+	}
+
+
+// 6. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), 
+// где arg1, arg2 – значения аргументов, operation – строка с названием операции. 
+// В зависимости от переданного значения операции выполнить одну из арифметических операций 
+//(использовать функции из пункта 3) и вернуть полученное значение (использовать switch).
+
+	function mathOperation(arg1, arg2, operation) {
+		switch (operation) {
+			case "+": 
+			alert(addition (arg1,arg2)); 
+			break;
+			case "-": 
+			alert(subtraction (arg1,arg2)); 
+			break;
+			case "*": 
+			alert(multiplication (arg1,arg2)); 
+			break;
+			case "/": 
+			alert(division (arg1,arg2)); 
+			break;
+			}
+    }
+	
+	var a = prompt("Enter your number: ");
+	var b = prompt("Enter your number: ");
+	var op = prompt("Enter operation: ");
+	a = parseInt(a);
+	b = parseInt(b);
+	
+	mathOperation(a, b, op);
+
+</script>
