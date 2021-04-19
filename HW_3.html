@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="utf-8"> 
+<script type="text/javascript">
+// 1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100.
+
+function isPrime(n) {
+  for (let i = 2; i < n; i++) {
+     if (n % i == 0)
+        return false;
+  }
+  return n > 1
+}   
+     
+var start = 0;
+var nums = [];
+while (start <= 100) {
+  nums.push(start++)
+}
+console.log("Массив чисел от 0 до 100: " + nums);
+
+var n = 0;
+while (n < nums.length) {
+  if (isPrime(nums[n]))
+    console.log("Простое число: " + n)
+    n++
+}
+
+
+// 3. Товары в корзине хранятся в массиве. Задачи:
+// a) Организовать такой массив для хранения товаров в корзине;
+// b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.
+
+function randomInteger(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+var basket = [
+	{product: "computer", price: randomInteger(10000, 50000)},
+	{product: "printer", price: randomInteger(10000, 50000)},
+	{product: "scanner", price: randomInteger(10000, 50000)}
+];
+
+console.log(basket)
+
+
+function countBasketPrice(basket) {
+  let SumPrice = 0;
+  for (let prod in basket) {
+    SumPrice += basket[prod].price;
+  }
+  return SumPrice;
+}
+
+console.log("Стоимость корзины: " + countBasketPrice(basket))
+
+</script>
