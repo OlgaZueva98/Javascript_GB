@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Шахматная доска</title>
+</head>
+<body>
+    <canvas id="Chess" width="250" height="250" style="border: solid grey 2px"></canvas>
+ 
+    <script>
+        var canvas = document.getElementById("Chess");
+        var cell = canvas.getContext("2d");
+        var offset = 25;
+ 
+        cell.font = "20px Arial";
+
+        //Цифры
+        cell.fillText("8", offset / 2 - 5, offset * 2 - 5);
+        cell.fillText("7", offset / 2 - 5, offset * 3 - 5);
+        cell.fillText("6", offset / 2 - 5, offset * 4 - 5);
+        cell.fillText("5", offset / 2 - 5, offset * 5 - 5);
+        cell.fillText("4", offset / 2 - 5, offset * 6 - 5);
+        cell.fillText("3", offset / 2 - 5, offset * 7 - 5);
+        cell.fillText("2", offset / 2 - 5, offset * 8 - 5);
+        cell.fillText("1", offset / 2 - 5, offset * 9 - 5);
+      
+        //Буквы
+        cell.fillText("a", offset * 1 + 5, offset / 2 + 5);
+        cell.fillText("b", offset * 2 + 5, offset / 2 + 5);
+        cell.fillText("c", offset * 3 + 5, offset / 2 + 5);
+        cell.fillText("d", offset * 4 + 5, offset / 2 + 5);
+        cell.fillText("e", offset * 5 + 5, offset / 2 + 5);
+        cell.fillText("f", offset * 6 + 5, offset / 2 + 5);
+        cell.fillText("g", offset * 7 + 5, offset / 2 + 5);
+        cell.fillText("h", offset * 8 + 5, offset / 2 + 5);
+ 
+        //Клетки
+        for (var i = 1; i <= 8; i++) {
+          if (i % 2 == 0) {
+            for (var j = 1; j <= 8; j++) {
+              if (j % 2 != 0) {
+                drawCell(offset * i, offset*j, "black");
+              }
+              else {
+                drawCell(offset * i, offset*j, "white")
+              }
+            }
+          }
+          else {
+            for (var j = 1; j <= 8; j++) {
+              if (j % 2 != 0) {
+                drawCell(offset * i, offset*j, "white");
+              }
+              else {
+                drawCell(offset * i, offset*j, "black")
+              }
+            }
+          }
+        }
+      
+        // Границы
+        drawLine(offset * 9, offset, offset * 9, offset * 9); 
+        drawLine(offset, offset, offset, offset * 9); 
+        drawLine(offset, offset, offset * 9, offset); 
+ 
+        function drawCell(x, y, color) {
+            cell.beginPath();
+            cell.rect(x, y, 25, 25);
+            cell.fillStyle = color;
+            cell.fill();
+        }
+ 
+        function drawLine(x0, y0, x1, y1) {
+            cell.beginPath();      
+            cell.strokeStyle = "green";
+            cell.moveTo(x0, y0);    
+            cell.lineTo(x1, y1);    
+            cell.stroke();          
+        }
+    </script>
+</body>
+</html>
